@@ -1,0 +1,17 @@
+{
+    "flow_name": "My_Parent_Flow",
+    "import_path": "simple_subflows.py:my_parent_flow",
+    "parameter_openapi_schema": {
+        "title": "Parameters",
+        "type": "object",
+        "properties": {
+            "runs": {
+                "title": "runs"
+            }
+        },
+        "required": [
+            "runs"
+        ],
+        "definitions": null
+    }
+}

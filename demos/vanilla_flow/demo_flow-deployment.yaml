@@ -1,0 +1,41 @@
+###
+### A complete description of a Prefect Deployment for flow 'My Demo Flow'
+###
+name: my-purple-deployment
+description: This is my deployment for demoing purposes.
+version: 118a854056b79d401d69b5a6c5f1aef6
+tags:
+- purple
+parameters: {}
+schedule: null
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command:
+  - python
+  - -m
+  - prefect.engine
+  stream_output: true
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: My Demo Flow
+manifest_path: demo_flow-manifest.json
+storage:
+  basepath: /Users/taylorcurran/prj/demos/taylor-demo/demos/vanilla_flow
+  _is_anonymous: true
+  _block_document_name: anonymous-1ee33bc2-15ae-4d88-ae4e-afc84b548e31
+  _block_document_id: fc56805d-d906-4aea-8e85-c845fcec3c45
+  _block_type_slug: local-file-system
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    desired_outcome:
+      title: desired_outcome
+      default: Success
+      type: string
+  required: null
+  definitions: null
