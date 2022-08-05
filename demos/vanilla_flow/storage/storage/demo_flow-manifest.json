@@ -1,0 +1,17 @@
+{
+    "flow_name": "My Demo Flow",
+    "import_path": "my_flow_code.py:demo_flow",
+    "parameter_openapi_schema": {
+        "title": "Parameters",
+        "type": "object",
+        "properties": {
+            "desired_outcome": {
+                "title": "desired_outcome",
+                "default": "Success",
+                "type": "string"
+            }
+        },
+        "required": null,
+        "definitions": null
+    }
+}

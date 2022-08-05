@@ -1,9 +1,9 @@
 ###
 ### A complete description of a Prefect Deployment for flow 'My Demo Flow'
 ###
-name: my-demo-deployment
+name: my-purple-deployment
 description: null
-version: b7e0127af592644512277d5b3d195828
+version: de22b8f1e1358e92e90e957ba815dfc2
 tags:
 - purple
 parameters: {}
@@ -24,10 +24,10 @@ infrastructure:
 flow_name: My Demo Flow
 manifest_path: demo_flow-manifest.json
 storage:
-  basepath: /Users/taylorcurran/prj/demos/taylor-demo/demos/vanilla_flow
+  basepath: /Users/taylorcurran/prj/demos/taylor-demo/demos/vanilla_flow/storage
   _is_anonymous: true
-  _block_document_name: anonymous-1ee33bc2-15ae-4d88-ae4e-afc84b548e31
-  _block_document_id: fc56805d-d906-4aea-8e85-c845fcec3c45
+  _block_document_name: anonymous-aad1ea93-7122-4da4-a6d8-9de46621e7ac
+  _block_document_id: 35e4a6d7-90bb-4a84-b226-f2a94fbe905a
   _block_type_slug: local-file-system
 parameter_openapi_schema:
   title: Parameters

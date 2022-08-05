@@ -86,15 +86,10 @@ def sub_flow():
 @flow(name="My Demo Flow")
 def demo_flow(desired_outcome: str = 'Success'):
 
-
     ast = always_succeeds_task.submit()
 
     depends_on_ast.submit(ast)
 
-    # Accessing the decorator
-    # see if there is a workaround in client
-    # this is for prettyness in the UI
-    # This was doable in 1.0
     sub_flow()
 
     often_fails_task.submit()
@@ -111,10 +106,9 @@ def demo_flow(desired_outcome: str = 'Success'):
     
     # TODO - ca marche pas
     if task_result_1.get_state().type != 'COMPLETED':
-        print('-- Completed! --')
 
-        # slack_webhook_block = SlackWebhook.load('demo_slack_block')
-        # slack_webhook_block.notify("Hello from Prefect! Your task failed!! :(")
+        slack_webhook_block = SlackWebhook.load('demo_slack_block')
+        slack_webhook_block.notify("Hello from Prefect! Your task failed!! :(")
 
     [looping_task() for i in range(5)]
 
@@ -130,4 +124,4 @@ def demo_flow(desired_outcome: str = 'Success'):
 
 if __name__ == "__main__":
 
-    run = demo_flow('Success')
+    demo_flow('Success')
