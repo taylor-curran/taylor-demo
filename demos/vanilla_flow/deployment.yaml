@@ -1,13 +1,19 @@
 ###
 ### A complete description of a Prefect Deployment for flow 'My Demo Flow'
 ###
-name: my-purple-deployment
+name: my_v_deployment
 description: null
-version: de22b8f1e1358e92e90e957ba815dfc2
+version: 65f911038bc106f31b5cfefc363ed1ff
+# The work queue that will handle this deployment's runs
+work_queue_name: global
 tags:
-- purple
-parameters: {}
+- demo
+- vanilla
+- dev
+parameters:
+  desired_outcome: Fail
 schedule: null
+infra_overrides: {}
 infrastructure:
   type: process
   env: {}
@@ -18,24 +24,22 @@ infrastructure:
   - -m
   - prefect.engine
   stream_output: true
+
 ###
 ### DO NOT EDIT BELOW THIS LINE
 ###
 flow_name: My Demo Flow
-manifest_path: demo_flow-manifest.json
-storage:
-  basepath: /Users/taylorcurran/prj/demos/taylor-demo/demos/vanilla_flow/storage
-  _is_anonymous: true
-  _block_document_name: anonymous-aad1ea93-7122-4da4-a6d8-9de46621e7ac
-  _block_document_id: 35e4a6d7-90bb-4a84-b226-f2a94fbe905a
-  _block_type_slug: local-file-system
+manifest_path: null
+storage: null
+path: /Users/taylorcurran/prj/demos/taylor-demo/demos/vanilla_flow
+entrypoint: my_flow_code.py:demo_flow
 parameter_openapi_schema:
   title: Parameters
   type: object
   properties:
     desired_outcome:
       title: desired_outcome
-      default: Success
+      default: Fail
       type: string
   required: null
   definitions: null

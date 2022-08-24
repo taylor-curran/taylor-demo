@@ -13,7 +13,9 @@ import random
     name="Always Succeeds Task",
     version=os.getenv("GIT_COMMIT_SHA")
     )
-def always_succeeds_task():
+def always_succeeds_task(x=1):
+    if x == 1:
+        print("Always Succeeds Task")
     return "foo"
 
 @task(
@@ -84,19 +86,16 @@ def sub_flow():
     print("Sub Flow")
 
 @flow(name="My Demo Flow")
-def demo_flow(desired_outcome: str = 'Success'):
-
+def demo_flow(desired_outcome: str = 'Fail'):
 
     ast = always_succeeds_task.submit()
 
-    depends_on_ast.submit(ast)
+    inner_loop_dep = depends_on_ast.submit(ast)
 
-    # Accessing the decorator
-    # see if there is a workaround in client
-    # this is for prettyness in the UI
-    # This was doable in 1.0
+    ast2 = always_succeeds_task.submit(inner_loop_dep)
+
     sub_flow()
-
+    
     often_fails_task.submit()
 
     task_result_0 = large_computation.submit(5)
@@ -116,7 +115,7 @@ def demo_flow(desired_outcome: str = 'Success'):
         # slack_webhook_block = SlackWebhook.load('demo_slack_block')
         # slack_webhook_block.notify("Hello from Prefect! Your task failed!! :(")
 
-    [looping_task() for i in range(5)]
+    [looping_task() for i in range(2)]
 
     with tags('Specific_Tag'):
         task_with_tag.submit()
