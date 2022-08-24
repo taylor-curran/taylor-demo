@@ -1,0 +1,1 @@
+prefect deployment build --name my-demo-deployment --version 0.1.0 --tag aws --tag dev --tag demo --infra process --storage-block s3/my-code-store-block --output deployment.yaml s3_read_write.py:aws_s3_bucket_roundtrip

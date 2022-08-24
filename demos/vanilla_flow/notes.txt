@@ -1,0 +1,5 @@
+prefect deployment build --name my_v_deployment --tag demo --tag vanilla --tag dev --work-queue global --infra process --output deployment.yaml my_flow_code.py:demo_flow
+
+prefect deploymen
+t build --name my-docker-deployment --tag dev --tag demo --tag docker --work-queue global --infra-block docker-container/my-docker-infra-block -sb s3/my-code-store-block --output docker_deployment.yaml my_flow_code.py:demo_flow
+
